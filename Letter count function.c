@@ -1,32 +1,34 @@
-    
-    #include <stdio.h>
+/*This function takes the string and counts each letter. 
+    After processing these amounts it will return the most letters assignment (i.e. a = 0, b = 1 etc.)
+    When called first it will return the most commmon letter, then following attempts n will recieve the 
+    nth most common letter (up to 3)*/
+
+
+#include<stdio.h>
+#include<string.h>
 
 main()  {
 
-    char originalText[] =  "It as announcing it me stimulated frequently continuing. Least their she you now above going stand forth. He pretty future afraid should genius spirit on. Set property addition building put likewise get. Of will at sell well at as. Too want but tall nay like old. Removing yourself be in answered he. Consider occasion get improved him she eat. Letter by lively oh denote an. Perceived end knowledge certainly day sweetness why cordially. Ask quick six seven offer see among. Handsome met debating sir dwelling age material. As style lived he worse dried. Offered related so visitor we private removed. Moderate do subjects to distance. Inhabit hearing perhaps on ye do no. It maids decay as there he. Smallest on suitable disposed do although blessing he juvenile in. Society or if excited forbade. Here name off yet she long sold easy whom. Differed oh cheerful procured pleasure securing suitable in. Hold rich on an he oh fine. Chapter ability shyness article welcome be do on service. Perhaps far exposed age effects. Now distrusts you her delivered applauded affection out sincerity. As tolerably recommend shameless unfeeling he objection consisted. She although cheerful perceive screened throwing met not eat distance. Viewing hastily or written dearest elderly up weather it as. So direction so sweetness or extremity at daughters. Provided put unpacked now but bringing. Affronting discretion as do is announcing. Now months esteem oppose nearer enable too six. She numerous unlocked you perceive speedily. Affixed offence spirits or ye of offices between. Real on shot it were four an as. Absolute bachelor rendered six nay you juvenile. Vanity entire an chatty to. ";
-    char capitalText[strlen(originalText)];
+    char originalText[] =  "THIS IS A STRING A VEERY LONFJNKSXZNCDJKNVCDJNCSJNCKA";
+    int stringLength = strlen(originalText);
     char letterCount[26];
     int firstCommon = 0;
+    int firstCommonAmount = 0;
     int secondCommon = 0;
+    int secondCommonAmount = 0;
     int thirdCommon = 0;
-    int stringLength = strlen(originalText);
+    int thirdCommonAmount = 0;
     int i;
+    static int attempt = 0;
     
-    for(i = 0; i < stringLength; i++)  {
-        if(originalText[i] >= 97 && originalText[i] <= 122) {
-            capitalText[i] = originalText[i] - 32;
-        }
-        else  {
-            capitalText[i] = originalText[i];
-        }    
-    }
+   attempt++;
     
     for(i = 0; i < 26; i++)  {
         letterCount[i] = 0;
     }
 
     for(i = 0; i < stringLength; i++)  {
-        switch(capitalText[i])  {
+        switch(originalText[i])  {
             case 65:    letterCount[0]++;
                         break;
             case 66:    letterCount[1]++;
@@ -81,26 +83,39 @@ main()  {
                         break;
         }
     }
-
-    for(i = 0; i < 26; i++)  {
-        printf ("%d\n", letterCount[i]);
-    }
     
     for(i = 0; i < 26; i++)    {
-        if(letterCount[i] >= firstCommon)  {
+        printf("\n%d  %d", i, letterCount[i]);
+    }
+
+    for(i = 0; i < 26; i++)    {
+        if(letterCount[i] >= firstCommonAmount)  {
             thirdCommon = secondCommon;
             secondCommon = firstCommon;
             firstCommon = i;
+            thirdCommonAmount = secondCommonAmount;
+            secondCommonAmount = firstCommonAmount;
+            firstCommonAmount = letterCount[i];
         }
-        else if (letterCount[i] < firstCommon && letterCount[i] >= secondCommon) {
+        else if (letterCount[i] < firstCommonAmount && letterCount[i] >= secondCommonAmount) {
             thirdCommon = secondCommon;
             secondCommon = i;
+            thirdCommonAmount = secondCommonAmount;
+            secondCommonAmount = letterCount[i];
         }
-        else if(letterCount[i] < secondCommon && letterCount[i] > thirdCommon) {
+        else if(letterCount[i] < secondCommonAmount && letterCount[i] >= thirdCommonAmount) {
             thirdCommon = i;
+            thirdCommonAmount = letterCount[i];
         }             
     }
     
-    printf("\n\n%c\n%c\n%c\n", firstCommon, secondCommon, thirdCommon);
+    switch (attempt)  {
+        case 1: return firstCommon;
+                break;
+        case 2: return secondCommon;
+                break;
+        case 3: return thirdCommon;
+                break;
+    }
     
 }
