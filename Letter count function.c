@@ -21,7 +21,7 @@ main()  {
     int i;
     static int attempt = 0;
     
-   attempt++;
+    attempt++;
     
     for(i = 0; i < 26; i++)  {
         letterCount[i] = 0;
@@ -29,57 +29,57 @@ main()  {
 
     for(i = 0; i < stringLength; i++)  {
         switch(originalText[i])  {
-            case 65:    letterCount[0]++;
+            case 'A':    letterCount[0]++;
                         break;
-            case 66:    letterCount[1]++;
+            case 'B':    letterCount[1]++;
                         break;
-            case 67:    letterCount[2]++;
+            case 'C':    letterCount[2]++;
                         break;
-            case 68:    letterCount[3]++;
+            case 'D':    letterCount[3]++;
                         break;
-            case 69:    letterCount[4]++;
+            case 'E':    letterCount[4]++;
                         break;
-            case 70:    letterCount[5]++;
+            case 'F':    letterCount[5]++;
                         break;
-            case 71:    letterCount[6]++;
+            case 'G':    letterCount[6]++;
                         break;
-            case 72:    letterCount[7]++;
+            case 'H':    letterCount[7]++;
                         break;
-            case 73:    letterCount[8]++;
+            case 'I':    letterCount[8]++;
                         break;
-            case 74:    letterCount[9]++;
+            case 'J':    letterCount[9]++;
                         break;
-            case 75:    letterCount[10]++;
+            case 'K':    letterCount[10]++;
                         break;
-            case 76:    letterCount[11]++;
+            case 'L':    letterCount[11]++;
                         break;
-            case 77:    letterCount[12]++;
+            case 'M':    letterCount[12]++;
                         break;
-            case 78:    letterCount[13]++;
+            case 'N':    letterCount[13]++;
                         break;
-            case 79:    letterCount[14]++;
+            case 'O':    letterCount[14]++;
                         break;
-            case 80:    letterCount[15]++;
+            case 'P':    letterCount[15]++;
                         break;
-            case 81:    letterCount[16]++;
+            case 'Q':    letterCount[16]++;
                         break;
-            case 82:    letterCount[17]++;
+            case 'R':    letterCount[17]++;
                         break;
-            case 83:    letterCount[18]++;
+            case 'S':    letterCount[18]++;
                         break;
-            case 84:    letterCount[19]++;
+            case 'T':    letterCount[19]++;
                         break;
-            case 85:    letterCount[20]++;
+            case 'U':    letterCount[20]++;
                         break;
-            case 86:    letterCount[21]++;
+            case 'V':    letterCount[21]++;
                         break;
-            case 87:    letterCount[22]++;
+            case 'W':    letterCount[22]++;
                         break;
-            case 88:    letterCount[23]++;
+            case 'X':    letterCount[23]++;
                         break;
-            case 89:    letterCount[24]++;
+            case 'Y':    letterCount[24]++;
                         break;
-            case 90:    letterCount[25]++;
+            case 'Z':    letterCount[25]++;
                         break;
         }
     }

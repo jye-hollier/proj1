@@ -1,5 +1,5 @@
 /*This function makes an array of 26 chars. It then goes through the caital text and 
-    counts each letter assigning the totals to an element (1 is A total, 2 is 
+    counts each letter assigning the totals to an element (0 is A total, 1 is 
     B total etc.) This array is then used to determine the 3 most common letters.*/
 
 #include <stdio.h>
@@ -20,11 +20,15 @@ int main()  {
         } 
     }
 
-    char letterCount[26] = {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", };
+    char letterCount[26];
     int firstCommon = 0;
     int secondCommon = 0;
     int thirdCommon = 0;
     
+    for(i = 0; i < 26; i++)  {
+        letterCount[i] = 0
+    }
+
     for(i = 0; i < strlen(originalText); i++)  {
         switch(capitalText[i])  {
             case 65:    letterCount[0]++
@@ -71,6 +75,61 @@ int main()  {
         }             
     }
     
-    printf("%d\n %d\n %d\n", firstCommon, secondCommon, thirdCommon)
+    printf("%d\n %d\n %d\n", firstCommon, secondCommon, thirdCommon);
+    
+    switch(originalText[i])  {
+                case 'A': encryptedText[i] = key[0]
+                    break;
+                case 'B': encryptedText[i] = key[1];
+                    break;
+                case 'C': encryptedText[i] = key[3];
+                    break;
+                case 'D': encryptedText[i] = key[4];
+                    break;
+                case 'E': encryptedText[i] = key[5];
+                    break;
+                case 'F': encryptedText[i] = key[6];
+                    break;
+                case 'G': encryptedText[i] = key[7];
+                    break;
+                case 'H': encryptedText[i] = key[];
+                    break;
+                case 'I': encryptedText[i] = key[];
+                    break;
+                case 'J': encryptedText[i] = key[];
+                    break;
+                case 'K': encryptedText[i] = key[];
+                    break;
+                case 'L': encryptedText[i] = key[];
+                    break;
+                case 'M': encryptedText[i] = key[];
+                    break;
+                case 'N': encryptedText[i] = key[];
+                    break;
+                case 'O': encryptedText[i] = key[];
+                    break;
+                case 'P': encryptedText[i] = key[];
+                    break;
+                case 'Q': encryptedText[i] = key[];
+                    break;
+                case 'R': encryptedText[i] = key[];
+                    break;
+                case 'S': encryptedText[i] = key[];
+                    break;
+                case 'T': encryptedText[i] = key[];
+                    break;
+                case 'U': encryptedText[i] = key[];
+                    break;
+                case 'V': encryptedText[i] = key[];
+                    break;
+                case 'W': encryptedText[i] = key[];
+                    break;
+                case 'X': encryptedText[i] = key[];
+                    break;
+                case 'Y': encryptedText[i] = key[];
+                    break;
+                case 'Z': encryptedText[i] = key[];
+                    break;
+                
     
 }
