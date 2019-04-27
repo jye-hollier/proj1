@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <string.h>
+
 void taskThree(void)  {
     char originalText[] =  "THIS IS A STRING. A VERY LONG STRING (SORT OF) THAT DOESNT REALLY SAY MUCH (with some lower case to test)";
     
