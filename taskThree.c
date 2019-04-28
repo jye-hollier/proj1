@@ -1,21 +1,16 @@
-#include <stdio.h>
-#include <string.h>
-
 void taskThree(void)  {
-    char originalText[] =  "THIS IS A STRING. A VERY LONG STRING (SORT OF) THAT DOESNT REALLY SAY MUCH (with some lower case to test)";
     
-    //printf
-    //char originalText[1000];
-    //scanf("%[^\n]%*c", originalText);
+    char originalText[1000];
+    char key[26];
+    
+    printf("\nPlease enter text to be encrypted:\n");
+    scanf (" %[^\n]%*c", originalText);
+    
+    printf("\nPlease enter the encryption key in capitals:\n(E.g.: QWERTYUIOPASDFGHJKLZXCVBNM)\n\n");
+    scanf(" %[^\n]%*c", key);
     
     int stringLength = strlen(originalText);
     char encryptedText[stringLength];
-    
-    char key[26] = "QWERTYUIOPASDFGHJKLZXCVBNM";
-    
-    //printf("Enter 26 letter key string in capitals\nE.g.: QWERTYUIOPASDFGHJKLZXCVBNM\n\n");
-    //scanf("%[^\n]%*c", key);
-    
     int i;
     
     for(i = 0; i < stringLength + 1; i++)  {
@@ -26,6 +21,6 @@ void taskThree(void)  {
             encryptedText[i] = originalText[i];
     }
     
-    printf("Encrypted text:\n%s\n\n", encryptedText);
+    printf("\nEncrypted text:\n%s", encryptedText);
     
 }

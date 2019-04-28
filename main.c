@@ -12,7 +12,7 @@ int main()  {
     void taskSix(void);
     
     while (taskNumber <1||taskNumber > 6)  {
-        printf("Please enter the task number:\n1 - Rotation Encryption\n2 - Rotation Decryption\n3 - Substitution Encryption\n4 - Substitution Decryption\n5 - Rotation Decryption(Given text only)\n6 - Substitution Decryption(Given text only)\n\n");
+        printf("Please enter the task number:\n1 - Rotation Encryption\n2 - Rotation Decryption\n3 - Substitution Encryption\n4 - Substitution Decryption\n5 - Rotation Decryption(Given text only)\n6 - Substitution Decryption(Given text only)\n\n#");
         scanf("%d", &taskNumber);
     }
 
@@ -33,4 +33,3 @@ int main()  {
     
     return 0;
 }
-    

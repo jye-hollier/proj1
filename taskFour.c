@@ -1,26 +1,22 @@
-#include <stdio.h>
-#include <string.h>
-
 void taskFour(void)  {
-    char originalText[] =  "ZIOL OL Q LZKOFU. Q CTKN SGFU LZKOFU (LGKZ GY) ZIQZ RGTLFZ KTQSSN LQN DXEI (with some lower case to test";
     
-    //printf
-    //char originalText[1000];
-    //scanf("%[^\n]%*c", originalText);
+    char originalText[1000];
+    char key[26];
+    
+    printf("\nPlease enter text to be decrypted:\n");
+    scanf (" %[^\n]%*c", originalText);
+    
+    printf("\nPlease enter the encryption key used in capitals:\n(E.g.: QWERTYUIOPASDFGHJKLZXCVBNM)\n");
+    scanf(" %[^\n]%*c", key);
     
     int stringLength = strlen(originalText);
     char decryptedText[stringLength];
+    
     int i;
     int c;
     
-    char key[26] = "QWERTYUIOPASDFGHJKLZXCVBNM";
-    
-    for(c=0;c<stringLength;c++)  {
-        printf("%d\n", originalText[c]);
-    }
-        
     for (i = 0; i < stringLength + 1; i++)  {
-        if (originalText[i] > 64 && originalText[i] < 91)  {        //if a capital letter
+        if (originalText[i] > 64 && originalText[i] < 91)  {
             for (c = 0; c < 26; c++)  {
                 if (originalText[i] == key[c])  {
                     decryptedText[i] = c + 65;
@@ -31,10 +27,6 @@ void taskFour(void)  {
             decryptedText[i] = originalText[i];
     }
         
-    for(c=0;c<stringLength;c++)  {
-        printf("%d\n", decryptedText[c]);
-    }  
-    
-    printf("Decrypted text:\n%s", decryptedText);
+    printf("\nDecrypted text:\n%s", decryptedText);
     
 }

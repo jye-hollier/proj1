@@ -1,17 +1,13 @@
-#include <stdio.h>
-#include <string.h>
-
 void taskTwo(void)  {
-    char originalText[] =  "YMNX NX F XYWNSL. F AJWD QTSL XYWNSL (XTWY TK) YMFY ITJXSY WJFQQD XFD RZHM (with some lower case to test)";
     
-    //printf("Enter text to be encrypted\n\n")
-    //char originalText[1000];
-    //scanf("%[^\n]%*c", originalText);
+    char originalText[1000];
+    int key;
     
-    int key;// = 4;
+    printf("\nPlease enter text to be encrypted:\n");
+    scanf (" %[^\n]%*c", originalText);
     
-    printf("Please enter the rotation key number used:\n#");
-    scanf("%d", key);
+    printf("\nPlease enter the rotation key number used:\n#");
+    scanf("%d", &key);
     
     int stringLength = strlen(originalText);
     char decryptedText[stringLength];
@@ -25,5 +21,5 @@ void taskTwo(void)  {
             decryptedText[i] = originalText[i];
     }
     
-    printf("\n\nDecrypted text:\n%s\n\n", decryptedText);
+    printf("\nDecrypted text:\n%s", decryptedText);
 }
