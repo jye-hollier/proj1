@@ -1,14 +1,18 @@
 void taskSix(void)  {
     
+    /*This function is meant to decrypt a substitution cipher. That is hard. Instead, it attempts to get some form of mark based on the fact
+      that marks are calculated on the amount of correct letters decrypted. It finds the 3 most common letters in the text,
+      exactly like the taskFive function, and hopes that at least one is E - replacing all of these letters with E.*/
+    
     char originalText[1000];
     
     printf("\nPlease enter text to be decrypted:\n");
     scanf (" %[^\n]%*c", originalText);
     
     int stringLength = strlen(originalText);
-    int letterCount[26];
-    char decryptedText[stringLength];
-    int firstCommon = 0;
+    int letterCount[26];                        //array to store letter amounts
+    char decryptedText[stringLength];           //array for decrypted text
+    int firstCommon = 0;                        //variables to record highest letter amounts and array positions
     int firstCommonAmount = 0;
     int secondCommon = 0;
     int secondCommonAmount = 0;
@@ -16,11 +20,11 @@ void taskSix(void)  {
     int thirdCommonAmount = 0;
     int i;
         
-    for(i = 0; i < 26; i++)  {
+    for(i = 0; i < 26; i++)  {                  //initalising each letter amount to zero
         letterCount[i] = 0;
     }
 
-    for(i = 0; i < stringLength; i++)  {
+    for(i = 0; i < stringLength; i++)  {        //same lettercount method as in taskFive function
         switch(originalText[i])  {
             case 'A':    letterCount[0]++;
                         break;
@@ -77,34 +81,37 @@ void taskSix(void)  {
         }
     }
     
+    /*After adding all capital letters the three most common are found by looping through each lettercount array element*/
+    
     for(i = 0; i < 26; i++)    {
-        if(letterCount[i] >= firstCommonAmount)  {
-            thirdCommon = secondCommon;
+        if(letterCount[i] >= firstCommonAmount)  {      //if the element value is higher then all previous, its value and position
+            thirdCommon = secondCommon;                 //are placed as first with the previous first becoming second and second becoming third.
             secondCommon = firstCommon;
             firstCommon = i;
             thirdCommonAmount = secondCommonAmount;
             secondCommonAmount = firstCommonAmount;
             firstCommonAmount = letterCount[i];
         }
-        else if (letterCount[i] < firstCommonAmount && letterCount[i] >= secondCommonAmount) {
-            thirdCommon = secondCommon;
+        else if (letterCount[i] < firstCommonAmount && letterCount[i] >= secondCommonAmount) {  //if less then first but equal to or higher then second
+            thirdCommon = secondCommon;                                                         //second most common element becomes third
             secondCommon = i;
             thirdCommonAmount = secondCommonAmount;
             secondCommonAmount = letterCount[i];
         }
-        else if(letterCount[i] < secondCommonAmount && letterCount[i] >= thirdCommonAmount) {
+        else if(letterCount[i] < secondCommonAmount && letterCount[i] >= thirdCommonAmount) {   //if equal to or greater then third most common replaces it
             thirdCommon = i;
             thirdCommonAmount = letterCount[i];
         }             
     }
     
-    for (i = 0; i < stringLength + 1; i++)  {
+    for (i = 0; i < stringLength + 1; i++)  {       //For each array element, if it is one of the three most common letters it becomes E
         if (originalText[i] == (firstCommon + 65) || originalText[i] == (secondCommon + 65) || originalText[i] == (thirdCommon + 65))  {
             decryptedText[i] = 'E';
         }
         else
-            decryptedText[i] = originalText[i];
+            decryptedText[i] = originalText[i];     //Otherwise remains unchanged
     }
         
     printf("\nDecrypted text:\n%s", decryptedText);
+
 }

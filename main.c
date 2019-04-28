@@ -3,6 +3,8 @@
 
 int main()  {
     
+    /*Each task has is accessed though seperate individual functions*/
+    
     int taskNumber = 0;
     void taskOne(void);
     void taskTwo(void);
@@ -10,6 +12,8 @@ int main()  {
     void taskFour(void);
     void taskFive(void);
     void taskSix(void);
+    
+    /*While loop utilised to only allow valid selection (will reloop if invalid option entered)*/
     
     while (taskNumber <1||taskNumber > 6)  {
         printf("Please enter the task number:\n1 - Rotation Encryption\n2 - Rotation Decryption\n3 - Substitution Encryption\n4 - Substitution Decryption\n5 - Rotation Decryption(Given text only)\n6 - Substitution Decryption(Given text only)\n\n#");

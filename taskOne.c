@@ -1,5 +1,8 @@
 void taskOne(void)  {
     
+    /*This function allows the user to enter both the text to be encrypted and the rotation key number to be used thrugh standard input. 
+      An array of 1000 chars is provided allowing for a maximum paragraph length of 100 characters(including white space)*/
+    
     char originalText[1000];
     int key;
     
@@ -15,12 +18,12 @@ void taskOne(void)  {
     
     
     
-    for(i = 0; i < stringLength + 1; i++)  {
-        if (originalText[i] > 64 && originalText[i] < 91)  {
-            encryptedText[i] = (((originalText[i] - 65) + key) %26 ) + 65;
+    for(i = 0; i < stringLength + 1; i++)  {                                    //Loops for every string element (plus 1 for ending null)
+        if (originalText[i] > 64 && originalText[i] < 91)  {                    //I.e if a capital letter ascii code
+            encryptedText[i] = (((originalText[i] - 65) + key) %26 ) + 65;      //Modifies each letter by key provided utilising the modulus to cater for letters which go past z
         }
         else
-            encryptedText[i] = originalText[i];
+            encryptedText[i] = originalText[i];                                 //All lower case and other symbols ignored
     }
     
     printf("\nEncrypted text:\n%s", encryptedText);
