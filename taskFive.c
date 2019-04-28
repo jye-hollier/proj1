@@ -1,12 +1,9 @@
-#include <stdio.h>
-#include <string.h>
-
 void taskFive(void)  {
     
-    char originalText[] =  "TVU TVAOTH: AOL KHAH IYVBNOA AV BZ IF AOL IVAOHU ZWPLZ WPUWVPUAZ AOL LEHJA SVJHAPVU VM AOL LTWLYVY'Z ULD IHAASL ZAHAPVU. DL HSZV RUVD AOHA AOL DLHWVU ZFZALTZ VM AOPZ KLHAO ZAHY HYL UVA FLA VWLYHAPVUHS. DPAO AOL PTWLYPHS MSLLA ZWYLHK AOYVBNOVBA AOL NHSHEF PU H CHPU LMMVYA AV LUNHNL BZ, PA PZ YLSHAPCLSF BUWYVALJALK. IBA TVZA PTWVYAHUA VM HSS, DL'CL SLHYULK AOHA AOL LTWLYVY OPTZLSM PZ WLYZVUHSSF VCLYZLLPUN AOL MPUHS ZAHNLZ VM AOL JVUZAYBJAPVU VM AOPZ KLHAO ZAHY. THUF IVAOHUZ KPLK AV IYPUN BZ AOPZ PUMVYTHAPVU.";
-    //char originalText[1000];
-    //printf("Enter text to be decrypted\n\n");
-    //scanf("%[^\n]%*c", originalText);
+    char originalText[1000];
+    
+    printf("\nEnter text to be decrypted:\n");
+    scanf(" %[^\n]%*c", originalText);
     
     int stringLength = strlen(originalText);
     int letterCount[26];
@@ -20,10 +17,7 @@ void taskFive(void)  {
     int i;
     int key;
     char checker;
-    //static int attempt = 0;
-    
-    //attempt++;
-    
+        
     for(i = 0; i < 26; i++)  {
         letterCount[i] = 0;
     }
@@ -116,8 +110,8 @@ void taskFive(void)  {
             decryptedText[i] = originalText[i];
     }
     
-    printf("Decrypted text:\n%s\n\nIf this text does not make sense enter 'r' to retry\nIf correct enter any other to exit\n", decryptedText);
-    scanf("%c", &checker);
+    printf("\nDecrypted text:\n%s\n\nIf text does not make sense enter 'r' to retry\nIf correct enter any other key to exit\n", decryptedText);
+    scanf(" %c", &checker);
     
     if (checker == 'r' || checker == 'R')  {
         key = (secondCommon + 22) %26;
@@ -130,23 +124,29 @@ void taskFive(void)  {
                 decryptedText[i] = originalText[i];
         }
         
-        printf("Decrypted text:\n%s\n\nIf text does not make sense enter 'r' to retry again\nIf correct enter any other key to exit\n", decryptedText);
-        scanf("%c", &checker);
+        printf("\nDecrypted text:\n%s\n\nIf text does not make sense enter 'r' to retry again\nIf correct enter any other key to exit\n", decryptedText);
+        scanf(" %c", &checker);
         
-        if (checker == 'r' || checker == 'R')  {
-            key = (thirdCommon + 22) %26;
-            
-            for(i = 0; i < stringLength + 1; i++)  {
-                if (originalText[i] > 64 && originalText[i] < 91)  {
-                    decryptedText[i] = (((originalText[i] - 39) + key) %26 ) + 65;
-                }    
-                else
-                        decryptedText[i] = originalText[i];
-            }
-
-            printf("Decrypted text:\n%s\n\nIf text does not make sense the text unfortunately cannot be decrypted\n", decryptedText);
-            scanf("%c", &checker);            
-        }    
     }
-}
+    
+    else
+        return 0;
+        
+    if (checker == 'r' || checker == 'R')  {
+        key = (thirdCommon + 22) %26;
+            
+        for(i = 0; i < stringLength + 1; i++)  {
+            if (originalText[i] > 64 && originalText[i] < 91)  {
+                decryptedText[i] = (((originalText[i] - 39) + key) %26 ) + 65;
+            }    
+            else
+                decryptedText[i] = originalText[i];
+        }
 
+        printf("\nDecrypted text:\n%s\n\nIf text does not make sense the text unfortunately cannot be decrypted\n", decryptedText);
+        scanf("%c", &checker);            
+    }
+    
+    else
+        return 0;
+}
