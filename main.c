@@ -132,7 +132,7 @@ void taskThree(void)  {
         if (key[i] >= 97 && key[i] <= 122)
             key[i] = key[i] - 32;
         else if (key[i] < 65 || key[i] > 122) {                 //Program exits if key contains a non-letter charatcter
-            printf("\nKey contains invalid character(s)");
+            printf("\nKey contains invalid character(s)\n");
             return 0;
         }
     }            
@@ -179,10 +179,10 @@ void taskFour(void)  {
         if (key[i] >= 97 && key[i] <= 122)
             key[i] = key[i] - 32;
         else if (key[i] < 65 || key[i] > 122) {                 //Program exits if non letter element in key
-            printf("\nKey contains invalid character(s)");
+            printf("\nKey contains invalid character(s)\n");
             return 0;
         }
-    }            
+    }
     
     for(i = 0; i < stringLength; i++)  {                        // Converts any lower case letters to capital
         if(originalText[i] >= 97 && originalText[i] <= 122)
@@ -492,8 +492,8 @@ void taskSix(void)  {
             decryptedText[i] = 'T';
         else if (originalText[i] == (thirdCommon + 65))             //If third common, assumed A
             decryptedText[i] = 'A';
-        else if (originalText[i] > 64 && originalText[i] < 91)      //If a remaining letter assumed A
-            decryptedText[i] = originalText[i];
+        else if (originalText[i] > 64 && originalText[i] < 91)      //If a remaining letter assumed O
+            decryptedText[i] = 'O';
         else
             decryptedText[i] = originalText[i];                     //Otherwise remains unchanged / copied
     }
