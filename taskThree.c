@@ -20,7 +20,7 @@ void taskThree(void)  {
         if (key[i] >= 97 && key[i] <= 122)
             key[i] = key[i] - 32;
         else if (key[i] < 65 || key[i] > 122) {                 //Program exits if key contains a non-letter charatcter
-            printf("key contains invalid character(s)");
+            printf("\nKey contains invalid character(s)");
             return 0;
         }
     }            
