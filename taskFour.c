@@ -9,7 +9,7 @@ void taskFour(void)  {
     printf("\nPlease enter text to be decrypted:\n");
     scanf (" %[^\n]%*c", originalText);
     
-    printf("\nPlease enter the encryption key used in capitals:\n(E.g.: QWERTYUIOPASDFGHJKLZXCVBNM)\n");
+    printf("\nPlease enter the encryption key used:\n(E.g.: QWERTYUIOPASDFGHJKLZXCVBNM)\n");
     scanf(" %[^\n]%*c", key);
     
     int stringLength = strlen(originalText);
@@ -18,7 +18,16 @@ void taskFour(void)  {
     int i;
     int c;
     
-    for(i = 0; i < stringLength; i++)  {                                        // Converts any lower case letters to capital
+    for (i = 0; i < 26; i++)  {                                 //Ensures all key elements are valid characters and capital
+        if (key[i] >= 97 && key[i] <= 122)
+            key[i] = key[i] - 32;
+        else if (key[i] < 65 || key[i] > 122) {                 //Program exits if non letter element in key
+            printf("key contains invalid character(s)");
+            return 0;
+        }
+    }            
+    
+    for(i = 0; i < stringLength; i++)  {                        // Converts any lower case letters to capital
         if(originalText[i] >= 97 && originalText[i] <= 122)
             originalText[i] = originalText[i] - 32;   
     }
