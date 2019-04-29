@@ -3,7 +3,8 @@ void taskFive(void)  {
     /*This function attempts to decrypt a text encrypted by a rotation cipher. It takes the entered text placing it in an array.
       The string length function is then used to determine the actual text length. From here each letter is counted and the three 
       most common stored. One of these three letters is assumed to be E as the is the most commmon letter in english language. 
-      The function provide the three possible decrypted texts requiring the user to select to correct one.*/
+      The function provide the three possible decrypted texts requiring the user to select to correct one. An array of 1000 chars 
+      is provided allowing for a maximum paragraph length of 1000 characters(including white space) to be entered*/
     
     char originalText[1000];
     
@@ -22,6 +23,11 @@ void taskFive(void)  {
     int i;
     int key;
     char checker;
+    
+    for(i = 0; i < stringLength; i++)  {                        // Converts any lower case letters to capital
+        if(originalText[i] >= 97 && originalText[i] <= 122)
+            originalText[i] = originalText[i] - 32;   
+    }
         
     for(i = 0; i < 26; i++)  {                  //initialising each letter amount to zero
         letterCount[i] = 0;

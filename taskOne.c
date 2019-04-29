@@ -1,7 +1,7 @@
 void taskOne(void)  {
     
     /*This function allows the user to enter both the text to be encrypted and the rotation key number to be used thrugh standard input. 
-      An array of 1000 chars is provided allowing for a maximum paragraph length of 100 characters(including white space)*/
+      An array of 1000 chars is provided allowing for a maximum paragraph length of 1000 characters(including white space) to be entered*/
     
     char originalText[1000];
     int key;
@@ -15,6 +15,11 @@ void taskOne(void)  {
     int stringLength = strlen(originalText);
     char encryptedText[stringLength];
     int i;
+    
+    for(i = 0; i < stringLength; i++)  {                                        // Converts any lower case letters to capital
+        if(originalText[i] >= 97 && originalText[i] <= 122)
+            originalText[i] = originalText[i] - 32;   
+    }
     
     
     

@@ -2,7 +2,9 @@ void taskSix(void)  {
     
     /*This function is meant to decrypt a substitution cipher. That is hard. Instead, it attempts to get some form of mark based on the fact
       that marks are calculated on the amount of correct letters decrypted. It finds the 3 most common letters in the text,
-      exactly like the taskFive function, and hopes that at least one is E - replacing all of these letters with E.*/
+      exactly like the taskFive function, and assumes the most common is E, second most common, and third most common A.  
+      All remaining letters are assumed to be O. An array of 1000 chars is provided allowing for a maximum paragraph length of 1000 characters
+      (including white space) to be entered*/
     
     char originalText[1000];
     
@@ -19,6 +21,11 @@ void taskSix(void)  {
     int thirdCommon = 0;
     int thirdCommonAmount = 0;
     int i;
+    
+    for(i = 0; i < stringLength; i++)  {                        // Converts any lower case letters to capital
+        if(originalText[i] >= 97 && originalText[i] <= 122)
+            originalText[i] = originalText[i] - 32;   
+    }
         
     for(i = 0; i < 26; i++)  {                  //initalising each letter amount to zero
         letterCount[i] = 0;
@@ -104,12 +111,17 @@ void taskSix(void)  {
         }             
     }
     
-    for (i = 0; i < stringLength + 1; i++)  {       //For each array element, if it is one of the three most common letters it becomes E
-        if (originalText[i] == (firstCommon + 65) || originalText[i] == (secondCommon + 65) || originalText[i] == (thirdCommon + 65))  {
+    for (i = 0; i < stringLength + 1; i++)   {                      //For each originalText element
+        if (originalText[i] == (firstCommon + 65))                  //If most common, assumed E
             decryptedText[i] = 'E';
-        }
+        else if (originalText[i] == (secondCommon + 65))            //If second common, assumed T
+            decryptedText[i] = 'T';
+        else if (originalText[i] == (thirdCommon + 65))             //If third common, assumed A
+            decryptedText[i] = 'A';
+        else if (originalText[i] > 64 && originalText[i] < 91)      //If a remaining letter assumed A
+            decryptedText[i] = originalText[i];
         else
-            decryptedText[i] = originalText[i];     //Otherwise remains unchanged
+            decryptedText[i] = originalText[i];                     //Otherwise remains unchanged / copied
     }
         
     printf("\nDecrypted text:\n%s", decryptedText);

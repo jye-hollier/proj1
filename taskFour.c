@@ -1,6 +1,7 @@
 void taskFour(void)  {
     
-    /*Like taskTwo this function takes the encrypted text and decryption code (in the form of a 26 capital letter string) to decrypt the text*/
+    /*Like taskTwo this function takes the encrypted text and decryption code (in the form of a 26 capital letter string) to decrypt the text
+      An array of 1000 chars is provided allowing for a maximum paragraph length of 1000 characters(including white space) to be entered*/
     
     char originalText[1000];
     char key[26];
@@ -16,6 +17,11 @@ void taskFour(void)  {
     
     int i;
     int c;
+    
+    for(i = 0; i < stringLength; i++)  {                                        // Converts any lower case letters to capital
+        if(originalText[i] >= 97 && originalText[i] <= 122)
+            originalText[i] = originalText[i] - 32;   
+    }
     
     for (i = 0; i < stringLength + 1; i++)  {                   //for each string elemtent including the end null
         if (originalText[i] > 64 && originalText[i] < 91)  {    //if it is a capital letter

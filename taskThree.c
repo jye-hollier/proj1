@@ -1,6 +1,7 @@
 void taskThree(void)  {
     
-    /*This function takes the entered text and encryption code (in the form of a 26 capital letter string) to encrypt the text*/
+    /*This function takes the entered text and encryption code (in the form of a 26 capital letter string) to encrypt the text
+      An array of 1000 chars is provided allowing for a maximum paragraph length of 1000 characters(including white space) to be entered*/
     
     char originalText[1000];
     char key[26];
@@ -14,6 +15,11 @@ void taskThree(void)  {
     int stringLength = strlen(originalText);
     char encryptedText[stringLength];
     int i;
+    
+    for(i = 0; i < stringLength; i++)  {                                        // Converts any lower case letters to capital
+        if(originalText[i] >= 97 && originalText[i] <= 122)
+            originalText[i] = originalText[i] - 32;   
+    }
     
     for(i = 0; i < stringLength + 1; i++)  {
         if (originalText[i] > 64 && originalText[i] < 91)  {

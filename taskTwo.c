@@ -1,6 +1,7 @@
 void taskTwo(void)  {
     
-    /*A reverse of taskOne, this function takes an encrypted text and key from the user and decrypts the message by subtracing the key from each ascii code*/
+    /*A reverse of taskOne, this function takes an encrypted text and key from the user and decrypts the message by subtracing the key from each ascii code
+      An array of 1000 chars is provided allowing for a maximum paragraph length of 1000 characters(including white space) to be entered*/
     
     char originalText[1000];
     int key;
@@ -14,6 +15,11 @@ void taskTwo(void)  {
     int stringLength = strlen(originalText);
     char decryptedText[stringLength];
     int i;
+    
+    for(i = 0; i < stringLength; i++)  {                                        // Converts any lower case letters to capital
+        if(originalText[i] >= 97 && originalText[i] <= 122)
+            originalText[i] = originalText[i] - 32;   
+    }
     
     for(i = 0; i < stringLength + 1; i++)  {
         if (originalText[i] > 64 && originalText[i] < 91)  {
