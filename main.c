@@ -485,7 +485,7 @@ void taskSix(void)  {
         }             
     }
     
-    for (i = 0; i < stringLength + 1; i++)   {                      //For each originalText element
+    for (i = 0; i < stringLength + 1; i++)   {                      //For each originalText element 
         if (originalText[i] == (firstCommon + 65))                  //If most common, assumed E
             decryptedText[i] = 'E';
         else if (originalText[i] == (secondCommon + 65))            //If second common, assumed T
